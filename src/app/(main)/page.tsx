@@ -7,12 +7,14 @@ import { FeaturedProjects } from "../_components/FeaturedProjects";
 import { TestimonialSection } from "../_components/TestimonialSection";
 import { ContactSection } from "../_components/ContactSection";
 import { Footer } from "../_components/Footer";
+import { SkillsSection } from "../_components/SkillsSection";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background flex flex-col">
       <Navbar />
       <HeroSection />
+      <SkillsSection />
       <ExperienceSection />
       <EducationSection />
       <CertificationsSection />

@@ -182,7 +182,7 @@ export const projects = [
     id: "1",
     name: "AI-Powered Analytics Dashboard",
     description:
-      "A comprehensive dashboard for visualizing data with AI-driven insights.",
+      "A comprehensive dashboard for visualizing data with AI-driven insights, featuring real-time data processing, predictive analytics, and interactive charts.",
     technologies: ["Next.js", "Python", "TensorFlow", "D3.js"],
     image: "/project1.jpg",
     link: "#",
@@ -193,7 +193,7 @@ export const projects = [
     id: "2",
     name: "E-Commerce Platform",
     description:
-      "Scalable e-commerce solution with advanced inventory management.",
+      "Scalable e-commerce solution with advanced inventory management, payment processing, and real-time order tracking for thousands of concurrent users.",
     technologies: ["React", "Node.js", "MongoDB", "Redux"],
     image: "/project2.jpg",
     link: "#",
@@ -202,10 +202,44 @@ export const projects = [
   },
   {
     id: "3",
-    name: "Portfolio V1",
-    description: "Previous iteration of personal portfolio.",
-    technologies: ["HTML", "CSS", "JavaScript"],
+    name: "AI Chatbot SaaS",
+    description:
+      "A white-label AI chatbot platform with custom training, multi-language support, and seamless website integration via embeddable widgets.",
+    technologies: ["Next.js", "OpenAI API", "Prisma", "PostgreSQL"],
     image: "/project3.jpg",
+    link: "#",
+    details: "Building intelligent conversational AI...",
+    featured: true,
+  },
+  {
+    id: "4",
+    name: "Real-Time Collaboration Tool",
+    description:
+      "A live document collaboration platform with real-time cursors, version history, and role-based access control for distributed teams.",
+    technologies: ["React", "Socket.io", "Express", "MongoDB"],
+    image: "/project4.jpg",
+    link: "#",
+    details: "Enabling real-time collaboration...",
+    featured: false,
+  },
+  {
+    id: "5",
+    name: "Task Management App",
+    description:
+      "A productivity-focused task manager with drag-and-drop boards, sprint planning, and automated workflows for agile teams.",
+    technologies: ["Next.js", "TypeScript", "Supabase", "Tailwind"],
+    image: "/project5.jpg",
+    link: "#",
+    details: "Streamlining team workflows...",
+    featured: false,
+  },
+  {
+    id: "6",
+    name: "Portfolio V1",
+    description:
+      "Previous iteration of personal portfolio showcasing early projects and design experiments.",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    image: "/project6.jpg",
     link: "#",
     details: "Simple static site...",
     featured: false,

@@ -1,86 +1,167 @@
 "use client";
 
 import { experiences } from "../_lib/data";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { cn } from "../_utils/cn";
 
 export function ExperienceSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [expandedId, setExpandedId] = useState<number>(experiences[0]?.id);
 
   return (
-    <section
-      id="experience"
-      className="py-24 w-full bg-background border-t border-border"
-    >
-      <div className="container mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+    <section id="experience" className="py-28 w-full bg-background">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-bold mb-16 tracking-tighter"
+          className="mb-16"
         >
-          EXPERIENCE
-        </motion.h2>
+          <span className="text-sm font-medium text-primary tracking-widest uppercase mb-3 block">
+            Where I&apos;ve worked
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Experience
+          </h2>
+        </motion.div>
 
-        <div className="flex flex-col max-w-4xl">
+        {/* Accordion Cards */}
+        <div className="max-w-4xl flex flex-col gap-4">
           {experiences.map((exp, index) => {
-            const isActive =
-              (hoveredIndex === null && index === 0) || hoveredIndex === index;
+            const isExpanded = expandedId === exp.id;
 
             return (
-              <motion.div
+              <div
                 key={exp.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="border-l-2 border-border pl-8 relative group pb-12 last:pb-0"
-                onMouseEnter={() => setHoveredIndex(index)}
-                onMouseLeave={() => setHoveredIndex(null)}
+                className={`rounded-sm border overflow-hidden transition-all duration-200 ${
+                  isExpanded
+                    ? "border-primary/25 bg-card shadow-lg shadow-primary/5"
+                    : "border-foreground/5 bg-card hover:border-foreground/10"
+                }`}
               >
-                <div
-                  className={cn(
-                    "absolute -left-[9px] top-0 w-4 h-4 border-2 border-primary transition-colors duration-300 rounded-none transform rotate-45",
-                    isActive ? "bg-primary" : "bg-background",
-                  )}
-                />
+                {/* Header - always visible */}
+                <button
+                  onClick={() => setExpandedId(isExpanded ? -1 : exp.id)}
+                  className="w-full flex items-center justify-between p-5 md:p-6 text-left cursor-pointer group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-3">
+                      {/* Active dot */}
+                      <div
+                        className={`w-2 h-2 rounded-full shrink-0 transition-colors duration-150 ${
+                          isExpanded ? "bg-primary" : "bg-muted-foreground/30"
+                        }`}
+                      />
+                      <h3 className="text-lg font-bold">{exp.role}</h3>
+                      <span className="text-primary font-medium text-sm">
+                        @ {exp.company}
+                      </span>
+                    </div>
+                  </div>
 
-                <div className="mb-2 flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
-                  <h3 className="text-2xl font-bold">{exp.role}</h3>
-                  <span className="hidden md:block w-px h-6 bg-border"></span>
-                  <span className="text-xl text-primary font-medium">
-                    {exp.company}
-                  </span>
-                </div>
-
-                <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-4 text-sm font-mono text-muted-foreground uppercase tracking-wider">
-                  <span>{exp.duration}</span>
-                  {/* @ts-ignore */}
-                  {exp.location && (
-                    <>
-                      <span className="hidden sm:inline">·</span>
-                      {/* @ts-ignore */}
-                      <span>{exp.location}</span>
-                    </>
-                  )}
-                </div>
-
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  {exp.description}
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-sm font-medium border border-border"
-                    >
-                      {tech}
+                  <div className="flex items-center gap-4">
+                    <span className="hidden md:block text-xs text-muted-foreground font-medium">
+                      {exp.duration}
                     </span>
-                  ))}
-                </div>
-              </motion.div>
+                    <motion.svg
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="w-4 h-4 text-muted-foreground shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </motion.svg>
+                  </div>
+                </button>
+
+                {/* Expandable content */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 md:px-6 pb-6 pt-0">
+                        {/* Divider */}
+                        <div className="w-full h-px bg-foreground/5 mb-5" />
+
+                        {/* Meta */}
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4 text-sm text-muted-foreground">
+                          <span className="flex items-center gap-1.5 md:hidden">
+                            <svg
+                              className="w-3.5 h-3.5 opacity-50"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                              />
+                            </svg>
+                            {exp.duration}
+                          </span>
+                          {/* @ts-ignore */}
+                          {exp.location && (
+                            <span className="flex items-center gap-1.5">
+                              <svg
+                                className="w-3.5 h-3.5 opacity-50"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                                />
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                              </svg>
+                              {/* @ts-ignore */}
+                              {exp.location}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-muted-foreground leading-relaxed mb-5 text-[15px]">
+                          {exp.description}
+                        </p>
+
+                        {/* Tech tags */}
+                        <div className="flex flex-wrap gap-2">
+                          {exp.technologies.map((tech) => (
+                            <span
+                              key={tech}
+                              className="px-3 py-1 rounded-sm bg-primary/8 text-primary/90 text-xs font-medium border border-primary/10"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             );
           })}
         </div>

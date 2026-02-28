@@ -2,7 +2,7 @@
 
 import { personalInfo } from "../_lib/data";
 import { motion } from "framer-motion";
-import { Copy, Mail, ExternalLink, ArrowRight } from "lucide-react";
+import { Copy, Mail, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import { cn } from "../_utils/cn";
 import { SiUpwork } from "react-icons/si";
@@ -20,98 +20,103 @@ export function ContactSection() {
   const upworkUrl = personalInfo.socials.upwork || "https://www.upwork.com/";
 
   return (
-    <section
-      id="contact"
-      className="py-24 w-full bg-background border-t border-border mt-auto"
-    >
-      <div className="container mx-auto px-4">
-        <motion.h2
+    <section id="contact" className="py-28 w-full bg-background mt-auto">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20">
+        {/* Section Header - centered */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-bold mb-16 tracking-tighter text-center"
+          className="text-center mb-16 max-w-2xl mx-auto"
         >
-          LET'S WORK TOGETHER
-        </motion.h2>
+          <span className="text-sm font-medium text-primary tracking-widest uppercase mb-3 block">
+            Get in touch
+          </span>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+            Let&apos;s Work Together
+          </h2>
+          <p className="text-muted-foreground text-base leading-relaxed">
+            Have a project in mind or want to collaborate? I&apos;m always open
+            to discussing new ideas and opportunities.
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {/* Contact Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
           {/* Email Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="group p-8 border border-border bg-card relative overflow-hidden flex flex-col justify-between h-full min-h-[300px]"
-          >
-            <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-            <div>
-              <div className="mb-6 inline-block p-3 bg-secondary rounded-full">
-                <Mail className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-2xl font-bold mb-2">Email Me</h3>
-              <p className="text-muted-foreground mb-4">
-                For project inquiries or just to say hello.
-              </p>
+          <div className="group rounded-sm bg-card border border-foreground/5 hover:border-primary/20 transition-all duration-200 hover:shadow-lg hover:shadow-primary/5 p-7 flex flex-col">
+            <div className="w-12 h-12 rounded-sm bg-primary/10 flex items-center justify-center mb-5">
+              <Mail className="w-5 h-5 text-primary" />
             </div>
 
-            <div className="relative z-10 w-full">
-              <div className="flex items-center gap-2 p-3 border border-border bg-background mb-4">
-                <span className="flex-1 text-sm font-mono truncate">
-                  {personalInfo.email}
-                </span>
-                <button
-                  onClick={copyEmail}
-                  className="p-2 hover:bg-secondary transition-colors"
-                  aria-label="Copy email"
-                >
-                  <Copy
-                    className={cn(
-                      "w-4 h-4 transition-all",
-                      copied ? "text-green-500 scale-110" : "",
-                    )}
-                  />
-                </button>
-              </div>
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="w-full py-3 bg-secondary text-secondary-foreground font-medium text-center border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300 block uppercase text-sm tracking-widest"
+            <h3 className="text-xl font-bold mb-1.5">Email Me</h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              For project inquiries or just to say hello.
+            </p>
+
+            {/* Email display + copy */}
+            <div className="flex items-center gap-2 p-3 rounded-sm bg-foreground/[0.03] border border-foreground/5 mb-4">
+              <span className="flex-1 text-sm font-mono truncate text-muted-foreground">
+                {personalInfo.email}
+              </span>
+              <button
+                onClick={copyEmail}
+                className="p-1.5 rounded-sm hover:bg-foreground/5 transition-colors cursor-pointer"
+                aria-label="Copy email"
               >
-                Send Email
-              </a>
+                <Copy
+                  className={cn(
+                    "w-3.5 h-3.5 transition-all",
+                    copied
+                      ? "text-green-500 scale-110"
+                      : "text-muted-foreground",
+                  )}
+                />
+              </button>
             </div>
-          </motion.div>
 
-          {/* Upwork Card - Highlighted */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="group p-8 border border-primary/50 bg-card relative overflow-hidden flex flex-col justify-between h-full min-h-[300px]"
-          >
-            <div className="absolute inset-0 bg-[#14a800]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="mt-auto flex items-center justify-center gap-2 w-full py-3 rounded-sm bg-primary text-primary-foreground font-semibold text-sm hover:opacity-90 transition-opacity duration-150"
+            >
+              Send Email
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
 
-            <div>
-              <div className="mb-6 inline-flex bg-black rounded-full p-3">
-                <SiUpwork className="w-8 h-8 text-white" />
+          {/* Upwork Card */}
+          <div className="group rounded-sm bg-card border border-foreground/5 hover:border-[#14a800]/30 transition-all duration-200 hover:shadow-lg hover:shadow-[#14a800]/5 p-7 flex flex-col">
+            <div className="w-12 h-12 rounded-sm bg-[#14a800]/10 flex items-center justify-center mb-5">
+              <SiUpwork className="w-6 h-6 text-[#14a800]" />
+            </div>
+
+            <h3 className="text-xl font-bold mb-1.5">Hire on Upwork</h3>
+            <p className="text-sm text-muted-foreground mb-6">
+              Secure contracts and detailed project tracking.
+            </p>
+
+            {/* Stats or trust signals */}
+            <div className="flex items-center gap-4 mb-6 text-sm">
+              <div className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full bg-[#14a800]" />
+                <span className="text-muted-foreground">Available Now</span>
               </div>
-              <h3 className="text-2xl font-bold mb-2">Hire on Upwork</h3>
-              <p className="text-muted-foreground mb-4">
-                Secure contracts and detailed project tracking.
-              </p>
+              <div className="flex items-center gap-1.5">
+                <span className="text-[#14a800] font-bold">100%</span>
+                <span className="text-muted-foreground">Job Success</span>
+              </div>
             </div>
 
-            <div className="relative z-10 w-full">
-              <a
-                href={upworkUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="w-full py-4 bg-[#14a800] text-white font-bold text-center hover:bg-[#14a800]/90 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]"
-              >
-                Visit Upwork Profile <ArrowRight className="w-4 h-4" />
-              </a>
-            </div>
-          </motion.div>
+            <a
+              href={upworkUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-auto flex items-center justify-center gap-2 w-full py-3 rounded-sm bg-[#14a800] text-white font-semibold text-sm hover:opacity-90 transition-opacity duration-150"
+            >
+              Visit Upwork Profile
+              <ArrowUpRight className="w-4 h-4" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

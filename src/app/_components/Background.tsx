@@ -36,7 +36,7 @@ export function Background() {
           ease: "easeInOut",
           delay: 2,
         }}
-        className="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-blue-500/20 dark:bg-blue-400/10 rounded-full blur-[100px] z-0"
+        className="absolute top-[40%] right-[-10%] w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] z-0"
       />
 
       <motion.div
