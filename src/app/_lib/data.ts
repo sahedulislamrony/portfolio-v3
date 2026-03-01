@@ -286,3 +286,12 @@ export const testimonials = [
     rating: 5,
   },
 ];
+
+export const skillProficiency = [
+  { name: "React / Next.js", level: 95 },
+  { name: "TypeScript", level: 90 },
+  { name: "Node.js / Express", level: 85 },
+  { name: "AI Integration", level: 80 },
+  { name: "PostgreSQL / MongoDB", level: 78 },
+  { name: "Python", level: 75 },
+];
