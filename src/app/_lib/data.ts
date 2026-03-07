@@ -1,14 +1,14 @@
 export const personalInfo = {
   name: "Sahedul Islam Rony",
   title: "Software Engineer & AI Integration Specialist",
-  email: "sahedul.dev@gmail.com",
+  email: "hello@sahedul.dev",
   about:
     "Specializing in building robust web applications with React, Next.js, and integrating AI solutions using modern tech stacks.",
   socials: {
     upwork: "https://www.upwork.com/freelancers/~0109b0d2808fa03fe6",
-    github: "https://github.com/",
-    linkedin: "https://linkedin.com/",
-    twitter: "https://x.com/",
+    github: "https://github.com/sahedulislamrony",
+    linkedin: "https://www.linkedin.com/in/sahedulislamrony",
+    twitter: "https://x.com/i_am_sahed",
   },
 };
 
@@ -20,7 +20,7 @@ export const experiences = [
     duration: "Jan 2026 - Present",
     location: "Netherlands · Remote",
     description:
-      "I work as a Software Engineer at CV Labz, focusing primarily on building and enhancing AI-driven features across the platform. My responsibilities include improving system intelligence, fixing bugs, optimizing performance, and strengthening overall system stability. I actively contribute to full-stack development using React.js, Node.js, Express.js, and TypeScript, while continuously refining the architecture and codebase to support scalability, reliability, and long-term product growth.",
+      "I build and ship AI-powered features that drive the core product forward. My focus is on improving system intelligence, optimizing performance, and strengthening platform stability. I work across the full stack with React, Node.js, Express, and TypeScript, and I'm always looking for ways to refine the architecture so it can scale well over time.",
     technologies: [
       "React.js",
       "Node.js",
@@ -37,7 +37,7 @@ export const experiences = [
     duration: "Oct 2025 - Present",
     location: "Bangladesh · Remote",
     description:
-      "I provide full-stack software engineering services with a strong focus on building scalable, high-performance web applications using React.js, Next.js, Node.js, Express, and TypeScript. My work includes designing clean architectures, creating seamless UI/UX, and developing robust backend systems. I also specialize in AI integration, bringing intelligent features into modern applications using Hugging Face.js, Transformers.js, and OpenAI APIs. I help clients incorporate NLP, machine learning, chatbots, and automation to enhance product capabilities and user experience. Committed to writing clean, maintainable code and delivering reliable, production-ready solutions that help clients achieve real business impact.",
+      "I work with clients from around the world to build production-ready web applications and AI-integrated solutions. My work usually involves designing scalable architectures, creating intuitive user interfaces, and developing solid backend APIs. I also love bringing intelligent features like NLP, chatbots, and automation into modern products using OpenAI and Hugging Face tools.",
     technologies: [
       "React.js",
       "Next.js",
@@ -47,6 +47,23 @@ export const experiences = [
       "Hugging Face.js",
       "Transformers.js",
       "OpenAI APIs",
+    ],
+  },
+  {
+    id: 3,
+    role: "Web Developer",
+    company: "Local Clients",
+    duration: "2023 - Present",
+    location: "Bangladesh",
+    description:
+      "I partner with local businesses and startups to help them build a strong digital presence. I handle everything from the initial concept and design to development, deployment, and ongoing support. My goal is always to create fast, responsive, and SEO-friendly solutions that actually make a difference for the business.",
+    technologies: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "MongoDB",
+      "Tailwind CSS",
     ],
   },
 ];

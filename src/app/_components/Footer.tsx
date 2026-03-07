@@ -18,15 +18,17 @@ export function Footer() {
       <div className="container mx-auto px-6 md:px-12 lg:px-20">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           {/* Left: Logo + copyright */}
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
             <span className="text-base font-bold">
               SR<span className="text-primary">.</span>
             </span>
-            <span className="w-px h-4 bg-foreground/10" />
-            <p className="text-sm text-muted-foreground flex items-center gap-1.5">
-              <Copyright className="w-3.5 h-3.5" />
-              {new Date().getFullYear()} {personalInfo.name}. All rights
-              reserved.
+            <span className="hidden sm:block w-px h-4 bg-foreground/10" />
+            <p className="text-sm text-muted-foreground flex items-center gap-1.5 text-center sm:text-left">
+              <Copyright className="w-3.5 h-3.5 shrink-0" />
+              <span>
+                {new Date().getFullYear()} {personalInfo.name}. All rights
+                reserved.
+              </span>
             </p>
           </div>
 
