@@ -277,29 +277,56 @@ export const skills = [
 export const testimonials = [
   {
     id: 1,
-    name: "Alex Morgan",
-    role: "CTO at TechFlow",
+    name: "Daniel V.",
+    role: "Upwork Client",
     feedback:
-      "Sahedul is an exceptional engineer. His ability to integrate complex AI solutions into our existing infrastructure was impressive. Highly recommended!",
+      "Sahedul is a very capable developer who approaches projects with professionalism and a strong focus on quality. He takes the time to properly understand the requirements and is honest about what is needed to build a stable and scalable system rather than applying quick fixes. Communication has been clear and consistent, and he is proactive in explaining technical decisions and suggesting improvements where necessary.",
     avatar: "/placeholder-avatar-1.jpg",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Chen",
-    role: "Product Manager",
+    name: "Thomas K.",
+    role: "Upwork Client",
     feedback:
-      "Working with Sahedul was a pleasure. He delivers high-quality code and always meets deadlines. His attention to detail is remarkable.",
+      "Sahedul did a great job on this milestone. His time management was solid, even when timelines got tight, and he stayed patient and professional throughout. He understood the scope clearly and focused on what was required without trying to push unnecessary changes. Communication was clear, and he worked with us respectfully to get the PDF export flow to a much higher standard. I appreciate his calm approach and willingness to resolve issues properly. Would work with him again.",
     avatar: "/placeholder-avatar-2.jpg",
-    rating: 4.5,
+    rating: 5,
   },
   {
     id: 3,
-    name: "James Wilson",
-    role: "Founder, StartupX",
+    name: "Liam H.",
+    role: "Upwork Client",
     feedback:
-      "The portfolio site Sahedul built for us exceeded all expectations. It's fast, beautiful, and the dark mode implementation is flawless.",
-    avatar: "/placeholder-avatar-3.jpg",
+      "Sahedul delivered a fully working LinkedIn Profile Analyzer with accurate scoring and clear, actionable feedback. The communication was focused and efficient, and every deadline was met without follow-ups. The end result wasn't a rough prototype, but a clean, deploy-ready product that can scale. Reliable, fast, and technically solid. Would definitely work with him again.",
+    avatar: "/placeholder-avatar-5.jpg",
+    rating: 5,
+  },
+  {
+    id: 4,
+    name: "Sophie A.",
+    role: "Upwork Client",
+    feedback:
+      "Sahedul did an excellent job integrating our Figma-designed PDF template with the website questionnaire. He mapped all form data accurately to the correct PDF fields and automated the generation process so each PDF matched the Figma layout perfectly. The final setup allows users to download or receive their personalized PDF quickly and seamlessly. Sahedul worked efficiently, communicated clearly, and delivered exactly what was needed. I highly recommend him for full-stack development or PDF automation projects.",
+    avatar: "/placeholder-avatar-6.jpg",
+    rating: 5,
+  },
+  {
+    id: 5,
+    name: "Rafiq H.",
+    role: "Local Business Owner",
+    feedback:
+      "Sahedul built a complete website for my business and handled everything from design to deployment. He understood exactly what I needed even when I couldn't explain it in technical terms. The site loads fast, looks professional, and my customers love it. He also taught me how to manage the content on my own, which I really appreciate.",
+    avatar: "/placeholder-avatar-7.jpg",
+    rating: 5,
+  },
+  {
+    id: 6,
+    name: "Nabil A.",
+    role: "Founder",
+    feedback:
+      "We brought Sahedul on to build the MVP for our SaaS product, and he absolutely delivered. He took our rough ideas and turned them into a clean, functional application in a very short time. His technical skills are strong, but what really stood out was how well he communicated throughout the process. He is someone you can trust with your product.",
+    avatar: "/placeholder-avatar-8.jpg",
     rating: 5,
   },
 ];
